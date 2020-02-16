@@ -8,10 +8,10 @@ jobs:
     strategy:
       matrix:
         version:
-          - 1.33.0 # min supported version
+          #- 1.33.0 # min supported version
           - stable
-          - beta
-          - nightly
+          #- beta
+          #- nightly
     steps:
     - uses: actions/checkout@v2
     - uses: actions-rs/toolchain@v1
