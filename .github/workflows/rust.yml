@@ -19,7 +19,7 @@ jobs:
         toolchain: ${{ matrix.version }}
         override: true
     - name: clean
-        run: cargo clean
+      run: cargo clean
     - name: Build
       run: cargo build --verbose
       env:
