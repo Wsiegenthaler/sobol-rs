@@ -11,7 +11,7 @@ documentation = "https://docs.rs/sobol-rs"
 description = "A Sobol sequence generator for Rust"
 categories = ["algorithms","science","simulation"]
 keywords = ["sobol","sequence","low-discrepancy","monte-carlo","quasi-random","distribution"]
-exclude = ["/.github"]
+exclude = ["/tests", "/benches", "/examples", "/.github"]
 
 [dependencies]
 libflate = "0.1"
