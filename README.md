@@ -4,7 +4,7 @@
 [![documentation](https://docs.rs/sobol/badge.svg)](https://docs.rs/sobol)
 ![minimum rustc 1.33](https://img.shields.io/badge/rustc-1.33+-red.svg)
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fwsiegenthaler%2Fsobol-rs%2Fbadge&style=flat)](https://actions-badge.atrox.dev/wsiegenthaler/sobol-rs/goto)
-![Coveralls github](https://img.shields.io/coveralls/github/wsiegenthaler/sobol-rs)
+[![Coverage Status](https://coveralls.io/repos/github/Wsiegenthaler/sobol-rs/badge.svg?branch=master)](https://coveralls.io/github/Wsiegenthaler/sobol-rs?branch=master)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 *A Sobol sequence generator for Rust*
