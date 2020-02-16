@@ -43,15 +43,15 @@ jobs:
       uses: actions-rs/tarpaulin@v0.1
       with:
         version: '0.10.2'
-        args: '-- --test-threads 1'
-    - name: 'Debug 1: list files'
-      run: find . | grep -v '\.git' > files.txt
-    - name: 'Debug 2: upload files.txt'
-      uses: actions/upload-artifact@v1
-      with:
-        name: files.txt
-        path: .
-    - name: Upload to Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        args: '--coveralls ${{ secrets.COVERALLS_TOKEN }} -- --test-threads 1'
+    #- name: 'Debug 1: list files'
+    #  run: find . | grep -v '\.git' > files.txt
+    #- name: 'Debug 2: upload files.txt'
+    #  uses: actions/upload-artifact@v1
+    #  with:
+    #    name: files.txt
+    #    path: ./files.txt
+    #- name: Upload to Coveralls
+    #  uses: coverallsapp/github-action@master
+    #  with:
+    #    github-token: ${{ secrets.GITHUB_TOKEN }}
