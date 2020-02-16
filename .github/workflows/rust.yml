@@ -24,3 +24,27 @@ jobs:
       run: cargo test --verbose
       env:
         RUST_BACKTRACE: 1
+
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions-rs/toolchain@v1
+      with:
+      toolchain: stable
+      override: true
+    - name: clean
+      run: cargo clean
+    - name: Build
+      run: cargo build --verbose
+      env:
+        RUST_BACKTRACE: 1
+    - name: Run cargo-tarpaulin
+      uses: actions-rs/tarpaulin@v0.1
+      with:
+        version: '0.10.2'
+        args: '-- --test-threads 1'
+    - name: Upload to Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
