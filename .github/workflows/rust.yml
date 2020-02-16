@@ -20,10 +20,6 @@ jobs:
         override: true
     - name: clean
       run: cargo clean
-    - name: Build
-      run: cargo build --verbose
-      env:
-        RUST_BACKTRACE: 1
     - name: Run tests
       run: cargo test --verbose
       env:
