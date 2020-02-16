@@ -1,6 +1,8 @@
 # sobol
 
 ![Crates.io](https://img.shields.io/crates/v/sobol-rs)
+[![documentation](https://docs.rs/sobol-rs/badge.svg)](https://docs.rs/sobol-rs)
+![minimum rustc 1.31](https://img.shields.io/badge/rustc-1.31+-red.svg)
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fwsiegenthaler%2Fsobol-rs%2Fbadge&style=flat)](https://actions-badge.atrox.dev/wsiegenthaler/sobol-rs/goto)
 ![Coveralls github](https://img.shields.io/coveralls/github/wsiegenthaler/sobol-rs)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
