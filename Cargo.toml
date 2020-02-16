@@ -19,6 +19,3 @@ num-traits = "0.2"
 
 [dev-dependencies]
 lazy_static = "1.4"
-
-[badges]
-coveralls = { repository = "wsiegenthaler/sobol-rs", branch = "master", service = "github" }
