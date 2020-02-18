@@ -47,7 +47,7 @@ In this example each component of the sequence is a 32-bit float but *sobol* als
 
 ## Initialization Values
 
-Initialization values (aka "parameters") supporting up to 21,201 dimensions are provided courtesy of Stephen Joe and Frances Kuo ([source](http://web.maths.unsw.edu.au/~fkuo/sobol)) and are accessible via `sobol::params::JoeKuoD6`. Custom values can be used by implementing the `sobol::params::SobolParams` trait.
+Initialization values (aka "parameters") supporting up to 21,201 dimensions are provided courtesy of Stephen Joe and Frances Kuo ([source](http://web.maths.unsw.edu.au/~fkuo/sobol)) and are accessible via `sobol::params::JoeKuoD6`. Custom initialization values can be used by implementing the `sobol::SobolParams` trait.
 
 If used, the provided `JoeKuoD6` params are embedded into your project by Rust. To minimize the the size of your binary, `JoeKuoD6` provides three parameter sets depending on the maximum dimensionality of your sequence:
 
