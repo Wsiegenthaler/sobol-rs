@@ -272,7 +272,7 @@ fn validate<T>(ref_seq: &Vec<Vec<f32>>, resolution: Option<usize>)
     where T: SobolType + ToFloat + Display, T::IT: LossyFrom<u32>,
 {
     let dims: usize = ref_seq[0].len();
-    let params = JoeKuoD6::load_extended();
+    let params = JoeKuoD6::extended();
 
     Sobol::<T>::new_with_resolution(dims, &params, resolution)
         .map(|s| s.iter().map(|v| v.to_float()).collect::<Vec<_>>())

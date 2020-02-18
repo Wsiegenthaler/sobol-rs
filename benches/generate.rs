@@ -82,6 +82,6 @@ const DIMS: usize = 10;
 fn generate_points<T>(b: &mut Bencher) 
     where T: SobolType, T::IT: LossyFrom<u32>, Sobol<T>: Clone {
 
-    let sobol = Sobol::<T>::new(DIMS, &JoeKuoD6::load());
+    let sobol = Sobol::<T>::new(DIMS, &JoeKuoD6::standard());
     b.iter(|| black_box(sobol.clone().take(N).collect::<Vec<_>>()));
 }

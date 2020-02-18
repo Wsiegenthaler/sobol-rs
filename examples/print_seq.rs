@@ -21,7 +21,7 @@ fn main() {
     println!(" [ Dimensions ] = {}", DIMS);
     println!(" [ Count      ] = {}", N);
 
-    let params = JoeKuoD6::load();
+    let params = JoeKuoD6::standard();
     let sobol = Sobol::<ValType>::new(DIMS, &params);
     
     sobol

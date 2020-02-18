@@ -34,7 +34,7 @@ use sobol::Sobol;
 use sobol::params::JoeKuoD6;
 
 fn main() {
-  let params = JoeKuoD6::load();
+  let params = JoeKuoD6::minimal();
   let seq = Sobol::<f32>::new(3, &params);
   
   for point in seq.take(100) {
@@ -49,13 +49,13 @@ In this example each component of the sequence is a 32-bit float but *sobol* als
 
 Initialization values (aka "parameters") supporting up to 21,201 dimensions are provided courtesy of Stephen Joe and Frances Kuo ([source](http://web.maths.unsw.edu.au/~fkuo/sobol)) and are accessible via `sobol::params::JoeKuoD6`. Custom initialization values can be used by implementing the `sobol::SobolParams` trait.
 
-If used, the provided `JoeKuoD6` params are embedded into your project by Rust. To minimize the the size of your binary, `JoeKuoD6` provides three parameter sets depending on the maximum dimensionality of your sequence:
+If imported into your project, the provided `JoeKuoD6` parameters are automatically embedded into your project binary. To reduce the amount of data added to your project, `JoeKuoD6` provides three otherwise identical parameter sets which can be selected from according to the dimensionality required by your sequences:
 
 | Source | Supported Dims | Approx. Size |
 | ------ | -------------- | ------------ |
-| `JoeKuoD6::load_minimal()` | 100  | 1kb |
-| `JoeKuoD6::load()` | 1,000 | 20kb |
-| `JoeKuoD6::load_extended()` | 21,201  | 690kb |
+| `JoeKuoD6::minimal()` | 100  | 1kb |
+| `JoeKuoD6::standard()` | 1,000 | 20kb |
+| `JoeKuoD6::extended()` | 21,201  | 690kb |
 
 ## See also
 

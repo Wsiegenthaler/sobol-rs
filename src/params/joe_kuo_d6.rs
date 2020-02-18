@@ -14,28 +14,28 @@ pub struct JoeKuoD6 {
 impl JoeKuoD6 {
 
     /**
-     * Load default parameter values supporting up to 1000 dimensions
+     * Load parameter values supporting up to 1000 dimensions
      */
-    pub fn load() -> Self {
-        JoeKuoD6::load_gzipped_bytes(include_bytes!("data/new-joe-kuo-6.1000.gz"))
+    pub fn standard() -> Self {
+        JoeKuoD6::load_gz_bytes(include_bytes!("data/new-joe-kuo-6.1000.gz"))
     }
 
     /**
-     * Load minimal parameter values supporting up to 100 dimensions
+     * Load parameter values supporting up to 100 dimensions
      */
-    pub fn load_minimal() -> Self {
-        JoeKuoD6::load_gzipped_bytes(include_bytes!("data/new-joe-kuo-6.100.gz"))
+    pub fn minimal() -> Self {
+        JoeKuoD6::load_gz_bytes(include_bytes!("data/new-joe-kuo-6.100.gz"))
     }
 
     /**
      * Load parameter values supporting up to 21,201 dimensions
      */
-    pub fn load_extended() -> Self {
-        JoeKuoD6::load_gzipped_bytes(include_bytes!("data/new-joe-kuo-6.21201.gz"))
+    pub fn extended() -> Self {
+        JoeKuoD6::load_gz_bytes(include_bytes!("data/new-joe-kuo-6.21201.gz"))
     }
 
-    /** Instantiates parameter struct from gzipped sequence of bytes */
-    fn load_gzipped_bytes(bytes: &[u8]) -> JoeKuoD6 {
+    /** Instantiates parameter struct from gz sequence of bytes */
+    fn load_gz_bytes(bytes: &[u8]) -> JoeKuoD6 {
         let mut byte_cursor = Cursor::new(bytes);
         let gz_decoder = Decoder::new(&mut byte_cursor).unwrap();
         let dim_params: Vec<JoeKuoD6Dim> = BufReader::new(gz_decoder)

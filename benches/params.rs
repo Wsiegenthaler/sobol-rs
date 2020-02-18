@@ -10,5 +10,5 @@ use crate::sobol::params::JoeKuoD6;
 
 /** Benchmark loading of parameter data */
 #[bench] fn bench_params(b: &mut Bencher) {
-    b.iter(|| black_box(JoeKuoD6::load()));
+    b.iter(|| black_box(JoeKuoD6::standard()));
 }

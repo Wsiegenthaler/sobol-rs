@@ -39,7 +39,7 @@ fn main() {
 }
 
 fn benchmark() -> usize {
-    let params = JoeKuoD6::load();
+    let params = JoeKuoD6::standard();
     let sobol = Sobol::<ValType>::new(DIMS, &params);
     let start = Instant::now();
     sobol.take_while(|_p| start.elapsed().as_millis() < MILLIS).count()

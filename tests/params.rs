@@ -8,7 +8,7 @@ use crate::sobol::params::*;
 #[test] fn test_load_params() {
 
     /* Ensure at least 1000 parameter records loaded */
-    let params = JoeKuoD6::load();
+    let params = JoeKuoD6::standard();
     assert!(params.max_dims > 999);
 
     /* Ensure some parameter data loaded correctly */
@@ -21,7 +21,7 @@ use crate::sobol::params::*;
 #[test] fn test_direction_vals() {
 
     /* Compute direction values for first 6 dimensions */
-    let params = JoeKuoD6::load();
+    let params = JoeKuoD6::standard();
     let dir_vals = Sobol::<u32>::init_direction_vals(6, 32, &params);
 
     /* Reference direction values for a 32-bit sequence with 6 dimensions */
