@@ -34,12 +34,12 @@ use sobol::Sobol;
 use sobol::params::JoeKuoD6;
 
 fn main() {
-  let params = JoeKuoD6::minimal();
-  let seq = Sobol::<f32>::new(3, &params);
-  
-  for point in seq.take(100) {
-    println!("{:?}", point);
-  }
+    let params = JoeKuoD6::minimal();
+    let seq = Sobol::<f32>::new(3, &params);
+    
+    for point in seq.take(100) {
+        println!("{:?}", point);
+    }
 }
 ```
 
