@@ -10,7 +10,7 @@ repository = "https://github.com/wsiegenthaler/sobol-rs"
 documentation = "https://docs.rs/sobol-rs"
 description = "A Sobol sequence generator for Rust"
 categories = ["algorithms","science","simulation"]
-keywords = ["sobol","low-discrepancy","mcmc","monte-carlo","quasi-random"]
+keywords = ["sobol","low-discrepancy","mcmc","monte-carlo","quasirandom"]
 exclude = ["/tests","/benches","/examples","/.github"]
 
 [dependencies]
