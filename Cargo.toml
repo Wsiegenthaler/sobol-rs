@@ -1,6 +1,6 @@
 [package]
 name = "sobol"
-version = "1.0.1"
+version = "1.0.2"
 authors = ["Weston Siegenthaler <westons@gmail.com>"]
 license = "BSD-3-Clause"
 edition = "2018"
@@ -14,7 +14,7 @@ keywords = ["sobol","low-discrepancy","mcmc","monte-carlo","quasirandom"]
 exclude = ["/tests","/benches","/examples","/.github"]
 
 [dependencies]
-libflate = "0.1"
+libflate = "1"
 num-traits = "0.2"
 
 [dev-dependencies]
