@@ -13,10 +13,10 @@ This crate provides Sobol low-discrepancy quasirandom sequences which are useful
 
 For efficiency, *sobol* employs the recursive variant of the gray code optimization proposed by *Antonov-Saleev*.
 
-Below are examples of 2-dimensional points drawn from Sobol and Uniform generators respectively. See an animated visualization [here](http://wsiegenthaler.github.io/lobos/web-example.html).
+Below are examples of 2-dimensional points drawn from Sobol and Uniform generators respectively. See an animated visualization [here](https://wsiegenthaler.github.io/lobos/web-example.html).
 <p align="center">
-  <img src="http://wsiegenthaler.github.io/lobos/sobol.png" alt="Sobol" width="49%">
-  <img src="http://wsiegenthaler.github.io/lobos/uniform.png" alt="Uniform" width="49%">
+  <img src="https://wsiegenthaler.github.io/lobos/sobol.png" alt="Sobol" width="49%">
+  <img src="https://wsiegenthaler.github.io/lobos/uniform.png" alt="Uniform" width="49%">
 </p>
 
 ## Usage
@@ -47,7 +47,7 @@ In this example each component of the sequence is a 32-bit float but *sobol* als
 
 ## Initialization Values
 
-Initialization values (aka "parameters") supporting up to 21,201 dimensions are provided courtesy of Stephen Joe and Frances Kuo ([source](http://web.maths.unsw.edu.au/~fkuo/sobol)) and are accessible via `sobol::params::JoeKuoD6`. Custom initialization values can be used by implementing the `sobol::SobolParams` trait.
+Initialization values (aka "parameters") supporting up to 21,201 dimensions are provided courtesy of Stephen Joe and Frances Kuo ([source](https://web.maths.unsw.edu.au/~fkuo/sobol/)) and are accessible via `sobol::params::JoeKuoD6`. Custom initialization values can be used by implementing the `sobol::SobolParams` trait.
 
 If imported into your project, the provided `JoeKuoD6` parameters are automatically embedded into your project binary. To reduce the amount of data added to your project, `JoeKuoD6` provides three otherwise identical parameter sets which can be selected from according to the dimensionality required by your sequences:
 
@@ -63,9 +63,9 @@ If imported into your project, the provided `JoeKuoD6` parameters are automatica
 
 ## References
 
-* Joe, Stephen, and Frances Y. Kuo. ["Notes on Generating Sobol Sequences."](http://web.maths.unsw.edu.au/~fkuo/sobol/joe-kuo-notes.pdf) (n.d.): n. pag. Aug. 2008. Web.
+* Joe, Stephen, and Frances Y. Kuo. ["Notes on Generating Sobol Sequences."](https://web.maths.unsw.edu.au/~fkuo/sobol/joe-kuo-notes.pdf) (n.d.): n. pag. Aug. 2008. Web.
 
-* "[Sobol Sequence.](http://en.wikipedia.org/wiki/Sobol_sequence)" Wikipedia. Wikimedia Foundation, n.d. Web. 25 Feb. 2015.
+* "[Sobol Sequence.](https://en.wikipedia.org/wiki/Sobol_sequence)" Wikipedia. Wikimedia Foundation, n.d. Web. 25 Feb. 2015.
 
 ## License
 
