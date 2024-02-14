@@ -14,7 +14,7 @@ const N: usize = 128;
 const S: usize = 1024;
 
 /** The dimensionality of the sequence to generate */
-const DIMS: usize = 10;
+const DIMS: usize = 1024;
 
 /** Generates N `f32` points */
 #[bench] fn bench_skip_f32(b: &mut Bencher) {
@@ -83,6 +83,6 @@ const DIMS: usize = 10;
 fn skip_points<T>(b: &mut Bencher) 
     where T: SobolType, T::IT: LossyFrom<u32>, Sobol<T>: Clone {
 
-    let sobol = Sobol::<T>::new(DIMS, &JoeKuoD6::standard());
+    let sobol = Sobol::<T>::new(DIMS, &JoeKuoD6::extended());
     b.iter(|| black_box(sobol.clone().skip(S).take(N).collect::<Vec<_>>()));
 }
