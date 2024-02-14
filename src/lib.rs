@@ -136,6 +136,28 @@ impl<T: SobolType> Iterator for Sobol<T> {
             Some(next_render)
         } else { None }
     }
+
+    fn nth(&mut self, n: usize) -> Option<Self::Item> {
+        for _ in 0..n {
+            if self.count < self.max_len {
+                let next = match &self.previous {
+                    None => vec![T::IT::zero(); self.dims],
+                    Some(previous) => {
+                        let a = self.count - T::IT::one();
+                        let c = Self::rightmost_zero(a);
+                        self.dir_vals.iter()
+                            .enumerate()
+                            .map(|(dim, dirs)| previous[dim] ^ dirs[c as usize])
+                            .collect::<Vec<T::IT>>()
+                    }
+                };
+
+                self.count += T::IT::one();
+                self.previous = Some(next);
+            } else { break }
+        }
+        self.next()
+    }
 }
 
 /**

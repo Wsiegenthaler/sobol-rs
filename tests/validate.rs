@@ -263,6 +263,41 @@ lazy_static! {
     validate::<i128>(&REF_SEQ_HI, Some(11));
 }
 
+/** Validate low-resolution high-dimensional `i8` sequence */
+#[test] fn validate_i8_lores_hidim_skip() {
+    for skip in 5..10 {
+        validate_skip::<i8>(&REF_SEQ_HI, Some(5), skip);
+    }
+}
+
+/** Validate low-resolution high-dimensional `i16` sequence */
+#[test] fn validate_i16_lores_hidim_skip() {
+    for skip in 5..10 {
+        validate_skip::<i16>(&REF_SEQ_HI, Some(5), skip);
+    }
+}
+
+/** Validate low-resolution high-dimensional `i32` sequence */
+#[test] fn validate_i32_lores_hidim_skip() {
+    for skip in 5..10 {
+        validate_skip::<i32>(&REF_SEQ_HI, Some(5), skip);
+    }
+}
+
+/** Validate low-resolution high-dimensional `i64` sequence */
+#[test] fn validate_i64_lores_hidim_skip() {
+    for skip in 5..10 {
+        validate_skip::<i64>(&REF_SEQ_HI, Some(5), skip);
+    }
+}
+
+/** Validate low-resolution high-dimensional `i128` sequence */
+#[test] fn validate_i128_lores_hidim_skip() {
+    for skip in 5..10 {
+        validate_skip::<i128>(&REF_SEQ_HI, Some(5), skip);
+    }
+}
+
 
 /**
  * Generates a sequence of type T and compares values to an externally generated
@@ -282,6 +317,28 @@ fn validate<T>(ref_seq: &Vec<Vec<f32>>, resolution: Option<usize>)
         .take(1)
         .for_each(|(i, (s, r))| {
             panic!("Generated point #{} does not match point from reference sequence!\n  --> generated = {}\n  --> expected =  {}", i, point_str(&s), point_str(&r));
+        });
+}
+
+/**
+ * Generates a sequence of type T and compares values to an externally generated
+ * reference sequence (see 'test/data/ref_seq_*.tsv.gz')
+ */
+fn validate_skip<T>(ref_seq: &Vec<Vec<f32>>, resolution: Option<usize>, skip: usize) 
+    where T: SobolType + ToFloat + Display, T::IT: LossyFrom<u32>,
+{
+    let dims: usize = ref_seq[0].len();
+    let params = JoeKuoD6::extended();
+
+    Sobol::<T>::new_with_resolution(dims, &params, resolution)
+        .skip(skip)
+        .map(|s| s.iter().map(|v| v.to_float()).collect::<Vec<_>>())
+        .zip(ref_seq.iter().skip(skip).map(|p| p.to_vec()).collect::<Vec<_>>())
+        .enumerate()
+        .filter(|(_, (s, r))| s != r)
+        .take(1)
+        .for_each(|(i, (s, r))| {
+            panic!("Generated point #{} does not match point from reference sequence with skip {}!\n  --> generated = {}\n  --> expected =  {}", i, skip, point_str(&s), point_str(&r));
         });
 }
 
